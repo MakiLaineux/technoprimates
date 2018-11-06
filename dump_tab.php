@@ -6,11 +6,10 @@
 
 	// bdd access parameters :
 	$SERVER = "localhost";	
-	$USER = "root"; 
-	$PWD = "mysqlroot2017";
-	$JCBDD = "proof";
+	$USER = "jcharbonnel"; 
+	$PWD = "jcharbonnel";
+	$JCBDD = "jcharbonnel";
 	$JCTABLE = "tbrequest";
-
 	// Open BDD:
 	$mysqli = new mysqli($SERVER, $USER, $PWD, $JCBDD);
 	if ($mysqli->connect_error) {

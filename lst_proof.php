@@ -1,9 +1,9 @@
 <?php
 	$SERVER = "localhost";	
-	$USER = "root"; 
-	$PWD = "mysqlroot2017";
-	$JCBDD = "proof";
-	$JCTABLE = "tbreqiest";
+	$USER = "jcharbonnel"; 
+	$PWD = "jcharbonnel";
+	$JCBDD = "jcharbonnel";
+	$JCTABLE = "tbrequest";
 
         $instance = $_GET['instance']; 
 
