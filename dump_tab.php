@@ -28,13 +28,14 @@
 	//Affichage du r?sultat:
 	printf("Select * From %s :<br>", $JCTABLE);
 	print ("<TABLE BORDER> <TR>
-		<TH>Id</TH> <TH>Instance</TH> <TH>Request</TH> <TH>hash</TH> <TH>tree</TH> <TH>TxId</TH> <TH>info</TH> <TH>status</TH> </TR>");	
+		<TH>id</TH> <TH>instance</TH> <TH>request</TH> <TH>hash</TH> <TH>chain</TH> <TH>tree</TH> <TH>txid</TH> <TH>info</TH> <TH>status</TH> </TR>");	
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		print ("<TR>");
 		print ("<TD>".$row['id']."</TD>");
 		print ("<TD>".$row['instance']."</TD>");
 		print ("<TD>".$row['request']."</TD>");
 		print ("<TD>".$row['hash']."</TD>");
+		print ("<TD>".$row['chain']."</TD>");
 		print ("<TD>".$row['tree']."</TD>");
 		print ("<TD>".$row['txid']."</TD>");
 		print ("<TD>".$row['info']."</TD>");

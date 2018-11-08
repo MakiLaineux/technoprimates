@@ -5,23 +5,29 @@
 	$JCBDD = "jcharbonnel";
 	$JCTABLE = "tbrequest";
 
-	$instance = $_GET['instance'];
 	$idrequest = $_GET['idrequest'];
-	$hash = $_GET['hash'];
-	
-	$request = "INSERT INTO $JCTABLE (`id`, `instance`, `request`, `hash`, `tree`, `chain`, `txid`, `info`, `status`) 
-              VALUES (NULL, $instance, $idrequest, $hash, '', '', '', '', '2');";
- 
+	$chain = $_GET['chain'];
+	$tree = $_GET['tree'];
+	$info = $_GET['info'];
+	$txid = $_GET['txid'];
+
+	$request = "UPDATE $JCTABLE SET status='4', chain='$chain', tree='$tree', txid='$txid', info='$info' WHERE id='$idrequest';";
+
 	// Ouverture BDD:
 	$mysqli = new mysqli($SERVER, $USER, $PWD, $JCBDD);
 	if ($mysqli->connect_error) exit(100);
 
 	// Execution de la requete :
 	if (!$result = $mysqli->query($request)) exit(101);
-	$last = $mysqli->insert_id;	
+		if ($mysqli->error) {
+		printf("MySQL connexion error : %s\n", $mysqli->error);
+		exit;
+		}
 
 	// Requete select
-	$request = "SELECT * FROM $JCTABLE WHERE id=$last;";
+	$request = "SELECT * FROM $JCTABLE WHERE id='$idrequest';";
+
+	
 	if (!$result = $mysqli->query($request)) exit(102);
 	$row = $result->fetch_array(MYSQLI_ASSOC);
 	$output[]=$row;	
@@ -31,3 +37,4 @@
 	$mysqli->close();
 
  ?>
+ 
